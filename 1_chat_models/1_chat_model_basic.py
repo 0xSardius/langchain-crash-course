@@ -2,16 +2,17 @@
 # OpenAI Chat Model Documents: https://python.langchain.com/v0.2/docs/integrations/chat/openai/
 
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+import os
+from langchain_anthropic import ChatAnthropic
 
 # Load environment variables from .env
-load_dotenv()
-
+load_dotenv(override=True)
 # Create a ChatOpenAI model
-model = ChatOpenAI(model="gpt-4o")
+model = ChatAnthropic(model="claude-3-5-sonnet-20240620")
+
 
 # Invoke the model with a message
-result = model.invoke("What is 81 divided by 9?")
+result = model.invoke("What are the 64 hexagrams of the I Ching?")
 print("Full result:")
 print(result)
 print("Content only:")
